@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+<!--  所有的springboot项目都是继承  parent项目   -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.jutixueyuan</groupId>
+    <artifactId>springboot_demo01</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot_demo01</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+
+<!--
+            spring-boot-starter-web 这里就是 springboot 进行了集成的配置
+             这里的配置: 依赖很多jar
+                spring-web/spring-bean等等,还进行了自动配置
+            spring-boot-starter-xxx  都是springboot的自动集成配置
+
+            这里不用谢 version
+                <parent>项目中有版本锁定
+-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+<!--
+            集合 test的依赖
+              这里用的是 junit 5.x
+             以前都是 用的 junit 4.12 springboot最新的使用的是
+
+             5.x
+
+-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

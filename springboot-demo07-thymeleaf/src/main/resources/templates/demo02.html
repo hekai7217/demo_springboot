@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+    <table border="1" cellspacing="0">
+
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>手机</td>
+        </tr>
+
+<!--
+        th:each 遍历的语法
+          ${users} 拿到集合
+          结合中的元素
+          ${user.id} 输入对象的数据
+
+          jstl 中的 varStatus 一样
+    -->
+        <tr th:each="user:${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.phone}"></td>
+        </tr>
+
+    </table>
+
+<!-- 拿到 strs 结合中的数据 -->
+
+  <p th:each="str,status:${strs}">
+<!--      拿到第一个-->
+      <span th:if="${status.first}" th:text="${str}"> </span>
+<!--      拿到最后一个-->
+      <span th:if="${status.last}" th:text="${status.current}"> </span>
+  </p>
+
+</body>
+</html>

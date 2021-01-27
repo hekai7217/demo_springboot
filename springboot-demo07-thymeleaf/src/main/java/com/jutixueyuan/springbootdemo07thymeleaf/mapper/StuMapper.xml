@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jutixueyuan.springbootdemo07thymeleaf.mapper.StuMapper">
+
+    <select id="findStus" resultType="com.jutixueyuan.springbootdemo07thymeleaf.bean.Stu">
+        select * from t_stu
+    </select>
+
+    <insert id="addStu" parameterType="com.jutixueyuan.springbootdemo07thymeleaf.bean.Stu">
+        insert into t_stu(name,age,info) value (#{name},#{age},#{info})
+    </insert>
+
+    <select id="findById" parameterType="integer" resultType="com.jutixueyuan.springbootdemo07thymeleaf.bean.Stu">
+          select * from t_stu where id = #{id}
+    </select>
+
+    <update id="updateStu" parameterType="com.jutixueyuan.springbootdemo07thymeleaf.bean.Stu">
+        update t_stu set name = #{name},age = #{age},info = #{info} where id = #{id}
+    </update>
+
+    <delete id="delStu" parameterType="integer">
+         delete from t_stu where id = #{id}
+    </delete>
+
+</mapper>

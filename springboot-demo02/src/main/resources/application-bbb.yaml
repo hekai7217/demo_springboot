@@ -1,0 +1,7 @@
+# yaml的配置
+# 01  属性进行折叠
+# 02 :给一个空格
+server:
+  port: 8082
+  servlet:
+    context-path: /demo03

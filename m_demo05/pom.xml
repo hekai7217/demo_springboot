@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jutixueyuan</groupId>
+  <artifactId>m_demo05</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <dependencies>
+
+<!--  scope 范围
+   编译（compile）时需要 测试时需要，运行时需要，打包时需要
+
+   Provided
+   编译（compile）时需要，测试（test）时也需要 ，运行时不需要，打包时不需要
+
+    jsp/servlet的时候,打包不需要他, war 部署到tomcat里面,tomcat中有 jsp/servlet的环境
+      打包的时候不需要 jsp/servlet
+    jsp/servlet 的范围就需要用  provided
+
+    Runtime  编译时不需要，测试时需要，运行时需要，打包时需要
+       数据库驱动,
+
+    test  编译时不需要，测试时需要，运行时不需要，打包也不需要
+
+   -->
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.3</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+  </build>
+</project>

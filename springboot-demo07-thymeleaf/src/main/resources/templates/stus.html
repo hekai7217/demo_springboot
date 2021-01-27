@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table cellspacing="0" border="1">
+
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>描述</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="stu:${stus}">
+        <td th:text="${stu.id}"></td>
+        <td th:text="${stu.name}"></td>
+        <td th:text="${stu.age}"></td>
+        <td th:text="${stu.info}"></td>
+
+        <td>
+            <a th:href="@{/findById(id=${stu.id})}">修改</a>
+             &nbsp; &nbsp; &nbsp; &nbsp;
+            <a th:href="@{/delStu(id=${stu.id})}">删除</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

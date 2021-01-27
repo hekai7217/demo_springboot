@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--    在登录成功的页面展示登录的信息 -->
+<!--
+     <shiro:principal/>   shiro在 thymeleaf 页面支持的标签
+     principal 登录的主体显示
+-->
+登录的信息是:
+<shiro:principal/>
+
+<br>
+<a th:href="@{/logout}"> 退出的操作 </a>
+
+<br>
+主页 page
+<br>
+
+<!--  给 页面使用标签
+       hasPermission 是否后权限的标签
+         name 权限的名称
+
+      如果有这个权限 显示 标签
+      没有标签不显示权限
+-->
+<shiro:hasPermission name="stu:list">
+    <a th:href="@{/stu/stuPage}">学生管理</a> <br>
+</shiro:hasPermission>
+
+<shiro:hasPermission name="teacher:list">
+    <a th:href="@{/teacher/teacherPage}">老师管理</a> <br>
+</shiro:hasPermission>
+
+<!--<shiro:hasPermission name="emp:list">-->
+    <a th:href="@{/emp/empPage}">员工管理</a> <br>
+<!--</shiro:hasPermission>-->
+
+</body>
+</html>

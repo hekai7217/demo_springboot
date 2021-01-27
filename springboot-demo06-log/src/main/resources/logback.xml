@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <configuration>
+
+<!--
+    日志三要素:
+     01 日志等级
+         level="info"
+
+     02 日志的输出位置
+          控制台输出  Stdout控制台输出的名称    ConsoleAppender类型
+
+          文件输出   RollingFile 文件输出的名称   RollingFileAppender类型
+
+     03 格式化
+          PatternLayout 日志输出的格式化
+-->
+
+<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->  
+<!--    <property name="LOG_HOME" value="${catalina.base}/logs/" />-->
+    <property name="LOG_HOME" value="C:/logs/" />
+    <!-- 控制台输出 -->
+    <appender name="Stdout" class="ch.qos.logback.core.ConsoleAppender">
+       <!-- 日志输出编码 -->  
+        <layout class="ch.qos.logback.classic.PatternLayout">   
+             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n   
+            </pattern>   
+        </layout>   
+    </appender>   
+    <!-- 按照每天生成日志文件 -->   
+    <appender name="RollingFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">   
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/server.%d{yyyy-MM-dd}.log</FileNamePattern>   
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>   
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n   
+            </pattern>   
+       </layout> 
+        <!--日志文件最大的大小-->
+       <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+         <MaxFileSize>10MB</MaxFileSize>
+       </triggeringPolicy>
+    </appender>     
+
+    <!-- 日志输出级别 -->
+    <root level="info">
+        <appender-ref ref="Stdout" />
+<!--        文件日志输出 -->
+        <appender-ref ref="RollingFile" />
+    </root>
+
+<!--    mapper的输入配置 -->
+<!--    <logger name="com.jutixueyaun.mapper" level="DEBUG"></logger>-->
+
+</configuration>

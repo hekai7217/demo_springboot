@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jutixueyuan</groupId>
+    <artifactId>m_demo01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+<!--
+      java 项目中 以前都是自己拷贝 jar
+
+      maven 项目中 通过
+         dependencies 依赖jar
+
+         依赖的坐标
+         <dependency>
+             组织的id (公司或者团队名称)
+            <groupId>junit</groupId>
+             项目的名称
+            <artifactId>junit</artifactId>
+            版本
+            <version>4.12</version>
+            范围
+            <scope>test</scope>
+        </dependency>
+-->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--配置插件-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <!--插件配置-->
+                <configuration>
+                    <!--打包安装时候略过测试-->
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

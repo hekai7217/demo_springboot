@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jutixueyuan.mapper.StuMapper">
+
+    <select id="findStus" resultType="com.jutixueyuan.bean.Stu">
+        select * from t_stu
+    </select>
+
+    <insert id="addStu" parameterType="com.jutixueyuan.bean.Stu">
+        insert into t_stu(name,age,info) value (#{name},#{age},#{info})
+    </insert>
+
+</mapper>

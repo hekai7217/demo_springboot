@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jutixueyuan</groupId>
+    <artifactId>m_ssm_parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+          ssm_parent 是父项目     <packaging>pom</packaging>
+          父项目下面有子模块        mapper/ssm_service/ssm_pojo   <packaging>jar</packaging>
+                                 ssm_web   <packaging>war</packaging>
+
+           pom  父项目  管理整个项目
+           jar  普通的java项目打包成jar 可以给其他进行依赖
+           war  web项目   发布
+    -->
+    <modules>
+        <module>ssm_mapper</module>
+        <module>ssm_service</module>
+        <module>ssm_pojo</module>
+        <module>ssm_web</module>
+    </modules>
+
+    <!-- 通过属性设置类库版本 -->
+    <!-- 在properties标签声明的属性，可以在作用范围内的pom.xml里面使用${标签名}访问 -->
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- 注意：pom里面的属性值，标签名是自定义的，随便写，只有符合xml标签规范 -->
+        <!--    标签的规范的写法: 项目名称.版本号-->
+        <!-- spring版本号 -->
+        <spirng.version>5.3.2</spirng.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.5.5</mybatis.version>
+        <mybatis.spring.version>2.0.5</mybatis.spring.version>
+        <!-- mysql驱动版本号 -->
+        <mysql-driver.version>5.1.49</mysql-driver.version>
+
+        <!-- log4j日志包版本号 -->
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.5</slf4j.version>
+
+        <!-- druid连接池版本号 -->
+        <druid.version>1.1.20</druid.version>
+
+    </properties>
+
+    <!--
+            如果父项目中进行了 依赖,其他的子项目模块中都可以用这个依赖
+            dependencies 添加依赖
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+<!--            只有测试的时候 需要test 打包 部署不需要他 -->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+<!--
+        依赖的版本管理
+-->
+
+    <!-- 指定可以选择的依赖库的版本 -->
+    <!-- 放在dependencyManagement标签里面的依赖库，并没有被使用，只是声明了，可选.版本锁定
+     这个意味着，如果在作用范围内（本pom.xml以及子pom.xml）里面使用到        dependencyManagement标签
+     指定版本的类库，必须要指定版本
+
+       在子项目中可以直接使用 :
+          （2）子项目，不需要再指定版本锁定的类库的版本
+     -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spirng.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spirng.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spirng.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spirng.version}</version>
+            </dependency>
+
+
+            <!-- 添加mybatis依赖 -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- 添加mybatis/spring整合包依赖 -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <!-- 添加mysql驱动依赖 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
+            </dependency>
+
+            <!-- 添加日志相关jar包 -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <!--告诉maven将项目源码中的xml文件也进行编译，并放到编译目录中-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>

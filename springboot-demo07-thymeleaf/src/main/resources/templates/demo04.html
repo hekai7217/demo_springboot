@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- 直接在页面展示 数据的 thymeleaf 的语法 -->
+  [[${msg}]]
+<!-- 用th:text 在html标签上展示数据 -->
+  <p th:text="${msg}"></p>
+
+<!-- 字符串的处理
+    ${#strings.方法名(作用域变量名或字面值)}
+-->
+<p th:text="${#strings.length(msg)}"></p>
+<p th:text="${#strings.toUpperCase(msg)}"></p>
+<p th:text="${#strings.toLowerCase(msg)}"></p>
+
+<!-- 日期的处理  ${#dates.format(日期, '格式')}-->
+<p th:text="${#dates.format(date,'yyyy_MM_dd:HH:mm:ss')}"></p>
+
+</body>
+
+</html>

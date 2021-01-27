@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--     th:text  向 html标签输入内容-->
+<span>hello </span> <br>
+<!-- 可以给标签添内容-->
+<span th:text="我是span"></span> <br>
+<!-- 可以把标签添内容 进行覆盖 -->
+<span th:text="我是span">我这里有内容 </span> <br>
+
+<!-- 可以获取 域对象中的数据 ${name} 进行数据填充 -->
+<p th:text="${name}"></p>
+<!-- session的数据 -->
+<p th:text="${session.sessionName}"></p>
+
+<!--
+    th:value  给表单中的value属性复制 
+-->
+
+<form action="" method="get">
+    
+    用户名:<input type="text" th:value="${name}" name="name" >
+    年龄:<input type="text"  th:value="${age}" name="age">
+    <button>提交</button>
+
+</form>
+
+<!-- th:if 满足条件 就显示 内容-->
+<span th:if="${age} > 22">
+    可以结婚
+</span>
+<span th:if="${age} <= 22">
+    不可以结婚
+</span>
+
+</body>
+</html>

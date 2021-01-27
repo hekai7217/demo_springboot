@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+      链接表单式 :
+        Thymeleaf会自动拼接上下文路径，开发者无需在手动引入上下文路径
+        @{参数列表}
+-->
+<!-- src 给 图片路径  -->
+<img th:src="@{/image/a.jpg}" alt=""> <br>
+vue 的写法很像
+
+<br>
+2.会自动加上上下文路径<br/>
+
+<!--  访问 demo04 请求路径 传递参数 name = scott age = 20-->
+<a th:href="@{/demo04(name='scott',age=20)}">demo04a标签传递参数</a>
+
+<!-- 拿到 作用域中的参数name 给name提交数据 -->
+<a th:href="@{/demo04(nane=${name})}">跳转到首页-参数表示式</a>
+<br>
+5.resultful风格
+<br>
+<a th:href="@{/demo05/detail/{id}/{name}/{age}(id=20,name='tiger',age=18)}">RestFul参数</a><br>
+
+
+</body>
+</html>
