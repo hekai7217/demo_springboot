@@ -61,7 +61,7 @@
     <aop:config>
 
 <!--        切点-->
-        <aop:pointcut id="pc" expression="execution(* com.jutixueyuan.service.impl..*.*(..))"/>
+        <aop:pointcut id="pc" expression="execution(* com.jutixueyuan.serviceimpl.impl..*.*(..))"/>
 <!--        切面-->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pc"></aop:advisor>
 

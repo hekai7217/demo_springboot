@@ -1,4 +1,4 @@
-package com.jutixueyuan.service;
+package com.jutixueyuan.serviceimpl;
 
 import com.jutixueyuan.pojo.Stu;
 

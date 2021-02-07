@@ -1,0 +1,7 @@
+dubbo:
+  application:
+    name: dubbo-provider
+
+  registry:
+    address: zookeeper://192.168.154.111:2181
+

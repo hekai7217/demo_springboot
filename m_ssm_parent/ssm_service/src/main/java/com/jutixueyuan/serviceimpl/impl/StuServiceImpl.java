@@ -1,8 +1,8 @@
-package com.jutixueyuan.service.impl;
+package com.jutixueyuan.serviceimpl.impl;
 
 import com.jutixueyuan.mapper.StuMapper;
 import com.jutixueyuan.pojo.Stu;
-import com.jutixueyuan.service.StuService;
+import com.jutixueyuan.serviceimpl.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
