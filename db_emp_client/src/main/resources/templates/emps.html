@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    展示emp的数据
+    <table cellspacing="0" border="1">
+        <tr>
+            <td>员工编号</td>
+            <td>员工姓名</td>
+            <td>照片</td>
+        </tr>
+        <tr th:each="emp:${emps}">
+            <td th:text="${emp.id}"></td>
+            <td th:text="${emp.name}"></td>
+            <td th:text="${emp.photo}"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

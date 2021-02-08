@@ -1,18 +1,16 @@
 package com.jutixueyuan.pojo;
 
+import java.io.Serializable;
+
 /**
  * @author 黄药师
- * @date 2021-01-19 15:48
+ * @date 2021-02-07 14:33
  * @desc 巨梯学院 http://www.jutixueyuan.com
  */
-public class Stu {
+public class Dept implements Serializable {
 
     private Integer id;
-
     private String name;
-    private Integer age;
-
-    private  String info;
 
     public Integer getId() {
         return id;
@@ -30,19 +28,19 @@ public class Stu {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public Dept() {
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public Dept(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
+    @Override
+    public String toString() {
+        return "Dept{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

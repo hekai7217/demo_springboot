@@ -1,0 +1,7 @@
+dubbo:
+  application:
+    name: db-emp-client
+  registry:
+    address: zookeeper://192.168.154.111:2181
+server:
+  port: 8081

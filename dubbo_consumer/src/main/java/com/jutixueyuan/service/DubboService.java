@@ -17,7 +17,7 @@ public class DubboService implements DemoService{
      *      @DubboReference  dubbo 的远程引用
      *
      */
-    @DubboReference
+    @DubboReference(loadbalance = "roundrobin")
     private DemoService demoService;
 
     @Override

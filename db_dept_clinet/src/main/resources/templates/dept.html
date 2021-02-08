@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+     展示dept的数据
+
+    <table cellspacing="0" border="1">
+
+        <tr>
+            <td>部门编号</td>
+            <td>部门名称</td>
+            <td>操作</td>
+        </tr>
+
+        <tr th:each="dept:${depts}">
+            <td th:text="${dept.id}">部门编号</td>
+            <td th:text="${dept.name}">部门名称</td>
+            <td>
+                <a th:href="@{http://localhost:8081/findEmp(did=${dept.id})}">查看部门员工</a>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+</html>

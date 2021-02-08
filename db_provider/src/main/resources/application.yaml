@@ -1,0 +1,21 @@
+
+# dubbo的配置
+dubbo:
+  application:
+    name: dubbo-provider
+
+  registry:
+    address: zookeeper://192.168.154.111:2181
+
+# 配置 数据库 和 mybatis
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dubbo
+    username: root
+    password: root
+
+mybatis:
+  # 加载配置文件
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.jutixueyuan.pojo

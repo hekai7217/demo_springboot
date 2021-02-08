@@ -5,3 +5,8 @@ dubbo:
   registry:
     address: zookeeper://192.168.154.111:2181
 
+  protocol:
+    port: 20883
+    # 注意配置了端口的时候 需要给name配置协议的名称
+    name: dubbo
+

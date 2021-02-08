@@ -1,0 +1,6 @@
+dubbo:
+  application:
+    name: db_consumer
+  registry:
+    address: zookeeper://192.168.154.111:2181
+
